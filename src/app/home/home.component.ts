@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ImagesService } from '../services/images.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,21 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
+  items:any;
+
+  constructor( private imageService: ImagesService ) {}
+
+  ngOnInit(): void {
+    this.getData()
+  }
+
+  getData() {
+    this.imageService.getAll().subscribe({
+      next: (response) => this.items = response,
+      error: (error) => console.error(error)
+    })
+  }
+  
 }

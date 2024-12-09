@@ -1,1 +1,13 @@
-<p>home works!</p>
+
+
+<h2>Listado:</h2>
+
+<ul class="list-group">
+    <!-- <li class="list-group-item d-flex gap-4">
+        <p>Nombre Item</p>
+        <img width="180" src="http://localhost:3000/api/files/product/7db3266f-57fd-40c5-9662-b12922f0daf9.png" alt="Imagen Item">
+    </li> -->
+    @for (item of items; track $index) {
+        <p>{{ item.name }} - {{ item.url }}</p>
+    }
+</ul>

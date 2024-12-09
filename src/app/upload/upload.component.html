@@ -1,1 +1,16 @@
-<p>upload works!</p>
+<h1>Upload</h1>
+
+
+<!-- <form (submit)="uploadImage($event)" enctype="multipart/form-data" class="d-flex flex-column container">
+    <label for="nombre">Nombre: </label>
+    <input type="text" name="nombre">
+    <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+    <button type="submit" [disabled]="!selectedFile" class="btn btn-primary">Guardar</button>
+</form>
+   -->
+
+   <form (submit)="onSubmit($event)" enctype="multipart/form-data">
+    <input type="text" name="name" [(ngModel)]="formData.name" placeholder="Nombre" required />
+    <input type="file" (change)="onFileSelected($event)" accept="image/*" required />
+    <button type="submit" [disabled]="!selectedFile">Enviar</button>
+  </form>
